@@ -1,0 +1,37 @@
+2.1:
+	Escape the single quotes with another '.
+	Example: insert into Persons (id, name) values (4, 'Daniel''s');
+2.2:
+	OS command injection
+	Consequences: Delete, overwrite, read sensible data
+2.3:
+	Memory pages can be protected with the X^W flag - a.k.a a page can have
+	either write rights, either executable rights. 
+	It is dangerous to have pages both executable and writable, because a
+	shellcode attack can happen easier. (Adding code with a buffer overflow)
+2.4:	
+	Old base pointer and return address.
+	Old base pointer (ebp or rbp) it is used to point the old stack frame
+	return address it is used to jump the next instruction after the most recent function call	
+
+2.5:
+	Yes, because the the location where the value "return address" is stored has a higher value, so if int a[] of size 4 starts at 0x400, than I can write at a[6] a new return address.
+	
+2.6: Why must a stack canary have a random value ?
+	It is usefull to be a random value, so that it can not easily be predicted and overwritten.
+
+2.7:
+• address space layout randomization (ASLR)	
+	Makes the prediction of the addresses (beginning of the stack, heap) harder
+	If you place the price of the product at a random address in memory, it might help.
+ 
+• marking the memory page as non executable or non writeable:
+	A lot harder to add shellcode
+	If you mark the memory where the price of the product is stored as non writable and
+	the memory where the shipping address is stored as non executable, than this it might prevent the attack
+
+• using a stack canary
+	If you place a *random* stack canary between the locations where the shipping address and the price are stored,
+	it might prevent the attack.
+	
+	 
