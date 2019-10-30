@@ -6,7 +6,7 @@ import sys
 app = Flask(__name__)
 
 cookie_name = "LoginCookie"
-key_hmac = bytes("123", "utf-8") # secret key, own only by the
+key_hmac = bytes("123", "utf-8") # secret key, own only by the server
 cookieFields = ",1489662453,com402,hw2,ex3,"
 
 @app.route("/login", methods=['POST'])
