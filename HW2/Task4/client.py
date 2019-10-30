@@ -12,21 +12,33 @@ N = 0xEEAF0AB9ADB38DD69C33F80AFA8FC5E86072618775FF3C0B9EA2314C9C256576D674DF7496
 g = 2
 salt = 2
 
+print("########################### hello")
+
+
+# from flask import Flask
+#
+# app = Flask(__name__)
+
 async def PAKE_client():
     uri = "ws://127.0.0.1:5000/"
+    print("~~~~~~~~~~~~~~~~   Client starts...")
+
     async with websockets.connect(uri) as websocket:
+
+        print("~~~~~~~~~~~~~~~~    email = ", EMAIL)
         await websocket.send(EMAIL.encode())
         print(f"> {EMAIL}")
 
+        print("~~~~~~~~~~~~~~~~    email = ", EMAIL)
         utf8_salt = await websocket.recv()
         bigendian_bytes_salt = binascii.unhexlify(utf8_salt)
         salt = int.from_bytes(bigendian_bytes_salt, 'big')
         print(f"< {salt}")
 
-        print("    salt = ",salt, file=sys.stderr)
+        print("~~~~~~~~~~~~~~~~    salt = ", salt)
 
         a = 413423 # TODO: randint(32) # generate a number from 32 random bytes
-        A = (g**a)%N
+        A = pow(g, a, N)
 
         bigendian_array_A = A.to_bytes((A.bit_length() + 7) // 8, 'big')
         utf8_hexadecimalstring_A = binascii.hexlify(bigendian_array_A).decode()
@@ -43,9 +55,9 @@ async def PAKE_client():
         h1 = hashlib.sha256()
         h1.update(bigendian_array_A)
         h1.update(bigendian_bytes_B)
-        print(h1.digest(), file=sys.stderr)
+        print(h1.digest())
         u = int(h1.hexdigest(), 16)
-        print(u, file=sys.stderr)
+        print(u)
 
         # h2 = H(EMAIL || ":" || PASSWORD)
         h2 = hashlib.sha256()
@@ -59,22 +71,22 @@ async def PAKE_client():
         h3.update(bigendian_bytes_salt)
         h3.update(h2.digest())
         x = int(h3.hexdigest(), 16)
-
-        S = (B - g**x)**((a+u*x)%N)
+        g_x = pow(g, x, N)
+        S = pow(B - g_x, a + u * x, N)
         bigendian_array_S = S.to_bytes((A.bit_length() + 7) // 8, 'big')
 
 
         h4 = hashlib.sha256()
         h4.update(bigendian_array_A)
         h4.update(bigendian_bytes_B)
-        h4.update(bigendian_bytes_S)
+        h4.update(bigendian_array_S)
 
         # Validation: send H(A || B || S) to the server
-        await websocket.send(h4.digest().decode())
+        await websocket.send(binascii.hexlify(h4.digest()))
 
+
+
+        utf8_Success = await websocket.recv()
+        print("RESULT ==================", utf8_Success)
 
 asyncio.get_event_loop().run_until_complete(PAKE_client())
-
-
-if __name__ == '__main__':
-    print("Client starts...")
