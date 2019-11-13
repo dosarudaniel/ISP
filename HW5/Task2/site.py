@@ -85,31 +85,3 @@ if __name__ == "__main__":
     print("[+] database populated")
 
     app.run(host='0.0.0.0',port=80)
-
-
-
-
-# # From site.py, ex 1.2
-# @app.route("/messages",methods=["GET","POST"])
-# def messages():
-#     db2 = pymysql.connect("localhost", config["USERNAME2"], config["USER_PWD2"], config["DATABASE2"])
-#     with db2.cursor() as cursor:
-#         sql = "SELECT name,message FROM contact_messages "
-#         ## display all messages
-#         if request.method == "GET":
-#             cursor.execute(sql)
-#             return render_template("messages.html",show=False,messages=cursor.fetchall())
-#
-#         ## get the POST search parameter
-#         name = request.form["name"]
-#         if name is not None and name is not "":
-#             sql += "WHERE name LIKE '" + name + "'"
-#
-#         #print("/message SQL: %s " % sql)
-#         #sys.stdout.flush()
-#         cursor.execute(sql)
-#         results = cursor.fetchall()
-#         if len(results) == 0:
-#             return render_template("messages.html",show=True,exists=False)
-#         else:
-#             return render_template("messages.html",show=True,exists=True)

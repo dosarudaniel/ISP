@@ -1,7 +1,6 @@
 from flask import Flask, request, make_response, render_template
 import sys
 from bcrypt import hashpw, gensalt
-# from flask.ext.bcrypt import Bcrypt
 
 app = Flask(__name__)
 

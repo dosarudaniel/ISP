@@ -8,7 +8,7 @@ charSet = "0123456789abcdefghijklmnopqrstuvwxyz" # For tokens that contain upper
 url = "http://0.0.0.0:8080/hw6/ex1"
 max = 0.5
 token = "000000000000"
-for i in range(12):
+for i in range(11):
     char = token[0]
     for c in charSet:
         token = token[:i] + c + token[i + 1:]
