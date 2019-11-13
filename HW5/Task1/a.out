@@ -1,0 +1,39 @@
+<!DOCTYPE doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Contact form for ISP homework </title>
+<meta content="The contact page for ISP homeworks" name="description"/>
+<meta content="SuperBadDeveloper" name="author"/>
+<!-- Latest compiled and minified CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- css !!-->
+<link href="/static/messages.css" rel="stylesheet">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</link></head>
+<body class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<div class="row">
+<form action="/messages" method="post" name="nameSearch">
+<div class="form-group">
+<label for="name">Search a name:</label>
+<input class="form-control" id="name" name="name" placeholder="Search a name" type="name"/>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<div class="row">
+</div>
+</div>
+</div>
+</body>
+</html>
+<Response [200]>
