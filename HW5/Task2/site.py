@@ -26,21 +26,21 @@ database = "hw5_ex2"
 def messages():
     with db.cursor() as cursor:
 
-        sql = "SELECT name FROM contact_messages "
+        sql = "SELECT name, message FROM messages"
         if request.method == "GET":
             cursor.execute(sql)
             json=[{"name" : name , "message" : msg } for name, msg in cursor.fetchall()]
-            print(json)
-            return jsonify(json),200
+            #print("here---"+json)
+            return jsonify(json), 200
 
         if request.method == "POST":
             name = request.form["name"]
             if name is not None and name is not "":
-                sql_query = "SELECT name FROM contact_messages where name=%s"
+                sql_query = "SELECT name, message FROM messages where name=%s"
                 name_tuple = (name,)
                 cursor.execute(sql_query, name_tuple)
                 json=[{"name" : name , "message" : msg } for name, msg in cursor.fetchall()]
-                print(json)
+            #    print(json)
                 return jsonify(json), 200
 
 
