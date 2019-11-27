@@ -14,11 +14,11 @@ To open a bash: (to check solution of part 2)
 `f(x) = w0 + w * x.T`   
      
 send 11 queries:     
- for w0, x should be [0, 0, 0,..0] (len(x) == 10)   
- for w1, x should be [1, 0, 0,..0] (len(x) == 10)    
+ for `w0`, x should be `[0, 0, 0,..0]` (len(x) == 10)   
+ for `w1`, x should be `[1, 0, 0,..0]` (len(x) == 10)    
 .   
 .   
 .   
- for w10, x should be [0, 0, 0,..,0,1] (len(x) == 10)   
+ for `w10`, x should be `[0, 0, 0,..,0,1]` (len(x) == 10)   
 
-See code:   
+See python code for Pailler crypto library usage. 
