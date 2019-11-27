@@ -63,10 +63,17 @@ prezenta_total = (total_voturi_tara+total_voturi_strainatate)/18217411 * 100
 
 print("Ora României         " + str(romanian_hour) + ":" + str(romanian_min) + ":" + str(romanian_sec))
 print("Prezenţă România   ============= {0:.2f} %\n".format(round(prezenta_tara, 2)))
-print("Total Voturi în Ro = " + "{:,}".format(total_voturi_tara))
-print("Străinătate        = " + "  {:,}".format(total_voturi_strainatate))
-print("Total voturi       = " + " {:,}".format(total_voturi_strainatate + total_voturi_tara))
+print("Total Voturi în Ro = " + " {:,}".format(total_voturi_tara))
+print("Străinătate        = " + "   {:,}".format(total_voturi_strainatate))
+print("Total voturi       = " + "{:,}".format(total_voturi_strainatate + total_voturi_tara) + ", total alegători: {:,}".format(18217411))
 print("Prezenţă Total     ============= {0:.2f} %".format(round(prezenta_total, 2)))
+
+print("\nVoturi pe categorii de vârstă în total: ")
+print("18-24 : " + "  {:,} -".format(total_voturi_18_24 + total_voturi_18_24_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_18_24 + total_voturi_18_24_ab)*100/1614567, 2)))
+print("25-34 : " + "{:,} -".format(total_voturi_25_34 + total_voturi_25_34_ab)+ " prezenta: {0:.2f} %".format(round((total_voturi_25_34 + total_voturi_25_34_ab)*100/3141395, 2)))
+print("35-44 : " + "{:,} -".format(total_voturi_35_44 + total_voturi_35_44_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_35_44+ total_voturi_35_44_ab)*100/3576480, 2)))
+print("45-64 : " + "{:,} -".format(total_voturi_45_64 + total_voturi_45_64_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_45_64 + total_voturi_45_64_ab) * 100/6082477, 2)))
+print("65+   : " + "{:,} -".format(total_voturi_65_plus + total_voturi_65_plus_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_65_plus + total_voturi_65_plus_ab)*100/3739491, 2)))
 
 print("\nVoturi pe categorii de vârstă în România: ")
 print("18-24 : " + "  {:,} -".format(total_voturi_18_24) + " prezenta: {0:.2f} %".format(round(total_voturi_18_24*100/1614567, 2)))
@@ -81,11 +88,3 @@ print("25-34 : " + "{:,} -".format(total_voturi_25_34_ab)+ " prezenta: {0:.2f} %
 print("35-44 : " + "{:,} -".format(total_voturi_35_44_ab) + " prezenta: {0:.2f} %".format(round(total_voturi_35_44_ab*100/3576480, 2)))
 print("45-64 : " + "{:,} -".format(total_voturi_45_64_ab) + " prezenta: {0:.2f} %".format(round(total_voturi_45_64_ab*100/6082477, 2)))
 print("65+   : " + " {:,} -".format(total_voturi_65_plus_ab) + " prezenta: {0:.2f} %".format(round(total_voturi_65_plus_ab*100/3739491, 2)))
-
-
-print("\nVoturi pe categorii de vârstă în total: ")
-print("18-24 : " + "  {:,} -".format(total_voturi_18_24 + total_voturi_18_24_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_18_24 + total_voturi_18_24_ab)*100/1614567, 2)))
-print("25-34 : " + "{:,} -".format(total_voturi_25_34 + total_voturi_25_34_ab)+ " prezenta: {0:.2f} %".format(round((total_voturi_25_34 + total_voturi_25_34_ab)*100/3141395, 2)))
-print("35-44 : " + "{:,} -".format(total_voturi_35_44 + total_voturi_35_44_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_35_44+ total_voturi_35_44_ab)*100/3576480, 2)))
-print("45-64 : " + "{:,} -".format(total_voturi_45_64 + total_voturi_45_64_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_45_64 + total_voturi_45_64_ab) * 100/6082477, 2)))
-print("65+   : " + "{:,} -".format(total_voturi_65_plus + total_voturi_65_plus_ab) + " prezenta: {0:.2f} %".format(round((total_voturi_65_plus + total_voturi_65_plus_ab)*100/3739491, 2)))
