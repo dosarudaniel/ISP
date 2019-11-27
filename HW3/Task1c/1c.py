@@ -18,6 +18,7 @@ if __name__ == '__main__':
     hashes.append(tuple(("cff39d9be689f0fc7725a43c3bdc7f5be012c840b9db9b547e6e3c454a076fc8", "2e"))) # steele99
     hashes.append(tuple(("662ab7be194cee762494c6d725f29ef6321519035bfb15817e84342829728891", "24"))) # born03101991#
 
+    # TODO unxip the rockyou.zip
     f = codecs.open('../rockyou.txt', encoding='utf-8')
     for line in f:
         line = line.strip()
