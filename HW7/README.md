@@ -11,7 +11,7 @@ To open a bash: (to check solution of part 2)
 
 ## Part 2   
 
-`f(x) = w0 + w * x.T`   
+`f(x) = w0 + w * x.T`   , `w = [w1, w2, w3, ... , w9, w10]`     
      
 send 11 queries:     
  for `w0`, x should be `[0, 0, 0,..0]` (len(x) == 10)   
