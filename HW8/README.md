@@ -1,6 +1,6 @@
 # Homework 8
 
-Please send an email at `daniel-florin.dosaru@epfl.ch` for questions or issues   
+Please send an email at [daniel-florin.dosaru@epfl.ch](daniel-florin.dosaru@epfl.ch) for questions or issues   
 
 Exercise 01_part1:     
 `python3 exercise01_part1.py`  
